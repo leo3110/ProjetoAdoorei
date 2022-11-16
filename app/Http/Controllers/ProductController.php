@@ -12,7 +12,6 @@ class ProductController extends Controller
         $query = DB::table('product')->get();
         return $query;
     }
-
     public function TESTEcreateProduct(Request $request) {
         $prod = new Product();
         $prod->name = $request->name;
