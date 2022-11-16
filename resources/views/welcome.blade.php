@@ -32,7 +32,9 @@
                 <input type="submit" value="VAI">
             </form> --}}
 
-            {{ $query }}
+            @php
+                var_dump($query);
+            @endphp
 
         </div>
     </body>

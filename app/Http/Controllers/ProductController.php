@@ -8,37 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function TESTEqueryAll() {
-        $query = DB::table('product')->get();
-        return $query;
+    public function index($category = null,$name = null) {
+        if ($category&&$name) $query = DB::table('product')->where('category','=',$category)->where('name','=',$name)->get();
+        else if ($category) $query = DB::table('product')->where('category','=',$category)->get();
+        else if ($name) $query = DB::table('product')->where('name','=',$name)->get();
+        else $query = DB::table('product')->get();
+        return view('welcome',['query' => $query]);
     }
-    public function TESTEcreateProduct(Request $request) {
-        $prod = new Product();
-        $prod->name = $request->name;
-        $prod->price = $request->price;
-        $prod->description = $request->description;
-        $prod->category = $request->category;
-        $prod->image_url = $request->image_url;
-        $prod->save();
-        return response()->json(["message" => "Product succesfully created!"], 201);
-    }
-
-    public function index($name = '*', $category = '*') {
-        $query = DB::table('product')->where([
-            ['name','=',$name],
-            ['category','=',$category],
-            ])->get();
-        return view('welcome', ['query' => $query]);
-    }
-
-    public function TESTEupdateProduct(Request $request, $id) {
-
-    }
-
-    public function TESTEdeleteProduct ($id) {
-
-    }
-
     public function queryAll() {
         $query = DB::table('product')->get();
         return $query;
