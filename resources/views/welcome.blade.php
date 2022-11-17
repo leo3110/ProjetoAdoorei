@@ -23,18 +23,15 @@
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
-            {{-- <form action="api/product" method="POST">
+            <form action="api/product/1" method="PUT">
                 <label for="name">name</label><input type="text" name="name" id="name">
                 <label for="price">price</label><input type="text" name="price" id="price">
                 <label for="description">description</label><input type="text" name="description" id="description">
                 <label for="category">category</label><input type="text" name="category" id="category">
-                <label for="img_url">img_url</label><input type="text" name="img_url" id="img_url">
+                <label for="image_url">image_url</label><input type="text" name="image_url" id="image_url">
                 <input type="submit" value="VAI">
-            </form> --}}
+            </form>
 
-            @php
-                var_dump($query);
-            @endphp
 
         </div>
     </body>
