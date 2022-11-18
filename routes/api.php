@@ -18,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('product', [ProductController::class,'queryAll']);
-Route::get('product/{id}', [ProductController::class,'queryProduct']);
-Route::post('product', [ProductController::class, 'createProduct']);
-Route::put('product/{id}', [ProductController::class,'updateProduct']);
-Route::delete('product/{id}',[ProductController::class,'deleteProduct']);
+Route::get('product/query', [ProductController::class,'queryAll']);
+Route::get('product/query/{id1?}/{id2?}', [ProductController::class,'queryProduct']);
+Route::get('product/queryImg/{bool}', [ProductController::class,'queryProductImg']);
+Route::put('product/create', [ProductController::class, 'createProduct']);
+Route::put('product/update/{id}', [ProductController::class,'updateProduct']);
+Route::delete('product/delete/{id}',[ProductController::class,'deleteProduct']);
